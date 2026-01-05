@@ -15,7 +15,8 @@ env:
 
 
 
-jobs:  build:
+jobs: 
+  build:
     name: Build and Deploy to GKE
     runs-on: ubuntu-latest  
     steps:

@@ -1,0 +1,26 @@
+# Node modules (will be installed in Docker)
+node_modules
+
+# Local environment variables
+.env
+
+# Git
+.git
+.gitignore
+
+# Build outputs
+dist
+*.tsbuildinfo
+
+# Editor/IDE files
+.vscode/
+*.swp
+.DS_Store
+
+# SDKs and tools not needed in image
+google-cloud-sdk/
+velero-v1.14.0-linux-amd64/
+
+# Logs & metadata
+*.log
+metadata.json

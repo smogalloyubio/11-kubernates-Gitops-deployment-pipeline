@@ -64,12 +64,9 @@ jobs:
           project_id: ${{ env.GKE_PROJECT_ID }}
 
 
-      - name: used  helm to deploy the application to gke cluster
-        uses: deliverybot/helm@v1
+      - name: Set up Helm
+        uses: azure/setup-helm@v3
         with:
-          args: upgrade --install my-release ./helm-chart --set image.repository=${{ env.DOCKER_USERNAME }}/my-app,image.tag=latest
+          version: v3.12.0
 
-      - name: Deploy to GKE
-        run: |
-          kubectl set image deployment/my-deployment my-container=${{ env.DOCKER_USERNAME }}/my-app:latest
-          kubectl rollout status deployment/my-deployment
+     

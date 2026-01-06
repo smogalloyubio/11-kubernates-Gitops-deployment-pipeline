@@ -62,23 +62,4 @@ jobs:
       - name: Install GKE auth plugin
         run: gcloud components install gke-gcloud-auth-plugin
 
-      - name: Set up GKE credentials
-        uses: google-github-actions/get-gke-credentials@v0.4.0
-        with:
-          cluster_name: ${{ env.GKE_CLUSTER_NAME }}
-          location: ${{ env.GKE_ZONE }}
-          project_id: ${{ env.GKE_PROJECT_ID }}
-
-      - name: Test kubectl
-        run: kubectl get nodes
-
-      - name: Set up Helm
-        uses: azure/setup-helm@v3
-        with:
-          version: v3.12.0
-
-      - name: Deploy to GKE using kubectl
-        run: |
-          kubectl apply -f manifest/deployment.yaml --namespace=dev
-          kubectl apply -f manifest/service.yaml --namespace=dev
-          kubectl rollout status deployment/myecommerce-app --namespace=dev
+    

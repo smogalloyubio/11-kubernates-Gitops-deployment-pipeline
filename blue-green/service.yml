@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: myecommerce-app
-    color: blue   # <-- switch to green to route traffic to green deployment
+    color: green  # <-- switch to green to route traffic to green deployment
   ports:
   - port: 80
     targetPort: 80

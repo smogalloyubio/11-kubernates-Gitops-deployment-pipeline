@@ -51,8 +51,8 @@ jobs:
 
       - name: Push Docker image to Docker Hub
         run: |
-          docker tag my-app:latest ${{ env.DOCKER_USERNAME }}/my-app:latest
-          docker push ${{ env.DOCKER_USERNAME }}/my-app:latest
+          docker tag my-ecommerceapp:latest ${{ env.DOCKER_USERNAME }}/my-ecommerceapp:latest
+          docker push ${{ env.DOCKER_USERNAME }}/my-ecommerceapp:latest
 
       - name: Set up GKE credentials
         uses: google-github-actions/get-gke-credentials@v0.4.0
@@ -68,5 +68,6 @@ jobs:
 
       - name: Deploy to GKE using kubectl
         run: |
-          kubectl apply -f k8s/deployment.yaml --namespace=dev
-          kubectl rollout status deployment/my-deployment --namespace=dev
+          kubectl apply -f manifest/deployment.yaml --namespace=dev
+          kubectl apply -f manifest/service.yaml --namespace=dev
+          kubectl rollout status deployment/myecommerce-app --namespace=dev

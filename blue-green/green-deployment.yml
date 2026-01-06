@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myecommerce-app-green
+  namespace: demo
+  labels:
+    app: myecommerce-app
+    color: green
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myecommerce-app
+      color: green
+  template:
+    metadata:
+      labels:
+        app: myecommerce-app
+        color: green
+    spec:
+      containers:
+      - name: frontend
+        image: rukevweubio/my-ecommerceapp:latest
+        ports:
+        - containerPort: 80

@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: frontend
-        # Replace 'your-docker-hub-username' with your actual registry name
-        image: your-docker-hub-username/myecommerce-app:latest
+        
+        image: rukevweubio/my-ecommerceapp:latest 
         ports:
         - containerPort: 80
         resources:

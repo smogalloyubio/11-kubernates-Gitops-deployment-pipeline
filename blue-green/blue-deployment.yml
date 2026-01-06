@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: rukevweubio/my-ecommerceapp:latest
+        image: rukevweubio/mybitcoinapp:latest
         ports:
         - containerPort: 80
